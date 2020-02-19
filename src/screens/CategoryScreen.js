@@ -1,37 +1,141 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, Image, Picker, TouchableOpacity } from 'react-native';
 
-const CategoryScreen = () => {
+// const data = [
+//     {
+//         "country":"Afghanistan",
+//         "cities": [
+//             "Herat",
+//             "Kabul",
+//             "Kandahar",
+
+//         ]
+//     },
+//     {
+//         "country":"Albania",
+//         "cities": [
+//             "Elbasan",
+//             "Petran",
+//             "Pogradec",
+
+//         ]
+//     },
+//     {
+//         "country":"Pakistan",
+//         "cities": [
+//             "Lahore",
+//             "Islamabad",
+//             "Karachi",
+
+//         ]
+//     }
+
+// ]
+
+const CategoryScreen = ({navigation}) => {
+    const searchUser = () => {
+        navigation.navigate('Landing')
+    }
+
+    const showService = (value) => {
+        setService(value)
+    }
+
+    const showCategory = (value) => {
+        setCategory(value)
+    }
+
+    // const showCountry = (value) => {
+    //     setCountry(value)
+    // }
+
+    // const showCity = (value) => {
+    //     setCity(value)
+    // }
+
+    const [service,setService] = useState('');
+    const [category,setCategory] = useState('');
+    // const [country,setCountry] = useState('');
+    // const [city,setCity] = useState('');
+    // const [countryData, setCountryData] = useState(["India", "Pakistan", "USA"])
+
+    // const countryList = () => {
+    //     return (data.map((x, i) => {            
+    //         return (<Picker.Item label={x.country} key={i} value={x.country} />)
+    //     }));
+    // }
+
+    // const cityList = () => {
+    //     return (data.map((x) => {
+    //         if (x.country == country){
+    //         console.log(x.country)            
+    //         return (x.cities.map((city)=>{
+    //             console.log("Cities: ",city)
+    //             return (<Picker.Item label={city} value={city} />)
+
+    //         }))
+    //     }
+    //     }
+    //         ))
+      
+      
+    // }
+
+
     return (
         <View>
             <Image  style={styles.imageStyle} source={require('../../assets/twitch.jpg')} />
-            <View>
-                <Picker>
+            <View style={{marginTop: 10}}>
+                <View style={styles.pickerContainers}>
+                <Picker
+                  selectedValue={service}
+                  onValueChange={showService.bind()}
+                  style={styles.pickerStyle}
+                //   mode="dropdown"
+                >
                     <Picker.Item label="Select Service" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
+                    <Picker.Item label="Select Service" value="2" />
+                    <Picker.Item label="Select Service" value="3" />
+                    <Picker.Item label="Select Service" value="4" />
                 </Picker>
-                <Picker>
-                    <Picker.Item label="Select Category" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
-                    <Picker.Item label="Select Service" value="1" />
+                </View>
+                <View style={styles.pickerContainers}>
+                <Picker
+                   selectedValue={category}
+                   onValueChange={showCategory.bind()}
+                   style={styles.pickerStyle}
+                //    mode="dropdown"
+                >
+                    <Picker.Item label="Select Category" value="5" />
+                    <Picker.Item label="Select Category" value="6" />
+                    <Picker.Item label="Select Category" value="7" />
+                    <Picker.Item label="Select Category" value="8" />
                 </Picker>
-                <Picker>
-                    <Picker.Item label="Select Country" value="1" />
-                    <Picker.Item label="Pakistan" value="1" />
-                    <Picker.Item label="India" value="1" />
-                    <Picker.Item label="Iran" value="1" />
+                </View>
+                {/* <View style={styles.pickerContainers}>
+                <Picker
+                  selectedValue={country}
+                  onValueChange={showCountry.bind()}
+                  style={styles.pickerStyle}
+                //   mode="dropdown"
+                >
+                  {countryList()}
                 </Picker>
-                <Picker>
-                    <Picker.Item label="Select City" value="1" />
-                    <Picker.Item label="Karachi" value="1" />
-                    <Picker.Item label="Hyderabad" value="1" />
-                    <Picker.Item label="Thatta" value="1" />
+                </View>
+                <View style={styles.pickerContainers}>
+                <Picker
+                  selectedValue={city}
+                  onValueChange={showCity.bind()}
+                  style={styles.pickerStyle}
+                //   mode="dropdown"
+                >
+                  {cityList()}  
                 </Picker>
+                </View> */}
             </View>
-            <TouchableOpacity style={styles.TouchableOpacityStyle}>
+            <TouchableOpacity 
+                style={styles.TouchableOpacityStyle}
+                onPress = {() => searchUser()}>
                 <Text style={styles.searchStyle}>SEARCH</Text>
             </TouchableOpacity>
         </View>
@@ -59,6 +163,25 @@ const styles = StyleSheet.create({
         color: 'black',
         justifyContent: "center",
         alignSelf: "center"
+    },
+    pickerContainers: {
+        borderWidth: 1,
+        borderColor: 'black',
+        justifyContent: "center",
+        width:"80%",
+        alignSelf: "center",
+        marginVertical: 3 ,
+        borderColor: 'grey',
+        height: 35,
+        borderRadius: 8
+
+    },
+    pickerStyle: {
+        color:'#274962'
+        // borderWidth: 1
+        // width:"80%",
+        // alignSelf: "center"
+
     }
 });
 

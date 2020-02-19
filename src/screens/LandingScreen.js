@@ -23,22 +23,36 @@ const LandingScreen = ({navigation}) => {
                 <Text style={{ alignSelf: "center", fontSize: 16, marginTop: 5 }}>NEED ASSISTANCE?</Text>
                 <TouchableOpacity 
                     style={styles.TouchableOpacityStyle2}
-                    onPress = {() => navigation.navigate('Category')}>
+                    onPress = {() => navigation.navigate('Category')}
+                >
                     <Text style={styles.textStyle}>Auditing & Accounting</Text>
                 </TouchableOpacity>
-                <TouchableOpacity  style={styles.TouchableOpacityStyle2}>
+                <TouchableOpacity 
+                    style={styles.TouchableOpacityStyle2}
+                    onPress = {() => navigation.navigate('List')}
+                >
                     <Text style={styles.textStyle}>Tax</Text>
                 </TouchableOpacity>
-                <TouchableOpacity  style={styles.TouchableOpacityStyle2}>
+                <TouchableOpacity 
+                   style={styles.TouchableOpacityStyle2}
+                   onPress = {() => navigation.navigate('Help')}
+                >
                     <Text style={styles.textStyle}>Legal Services</Text>
                 </TouchableOpacity>
-                <TouchableOpacity  style={styles.TouchableOpacityStyle2}>
+                <TouchableOpacity  
+                    style={styles.TouchableOpacityStyle2}
+                    onPress = {() => navigation.navigate('Setting')}
+                >
                     <Text style={styles.textStyle}>Private</Text>
                 </TouchableOpacity>
-                <TouchableOpacity  style={styles.TouchableOpacityStyle2}>
+                <TouchableOpacity  
+                    style={styles.TouchableOpacityStyle2}
+                >
                     <Text style={styles.textStyle}>Advisory</Text>
                 </TouchableOpacity>
-                <TouchableOpacity  style={styles.TouchableOpacityStyle2}>
+                <TouchableOpacity 
+                    style={styles.TouchableOpacityStyle2}
+                >
                     <Text style={styles.textStyle}>Fiduciary & Estate Planning</Text>
                 </TouchableOpacity>
                 

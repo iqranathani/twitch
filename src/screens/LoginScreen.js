@@ -146,7 +146,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         height: 35 ,
         borderRadius: 30,
-        marginHorizontal: 90 ,
+        alignSelf: "center",
+        width: 220,
         color: 'black',
         justifyContent: "center"
     },
@@ -156,7 +157,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         height: 35 ,
         borderRadius: 30,
-        marginHorizontal: 90 ,
+        alignSelf: "center",
+        width: 220,
         color: 'black'
     },
     loginStyle: {

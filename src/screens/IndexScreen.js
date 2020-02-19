@@ -25,6 +25,7 @@ const IndexScreen = ({navigation}) => {
         }
         else {
          registerApi(userName,email,companyName,password)
+         navigation.navigate('Selection')
         // console.log(userName,email,companyName,password,confirmPassword);
         }
 
