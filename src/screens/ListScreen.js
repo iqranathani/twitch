@@ -1,8 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, Image, StyleSheet } from 'react-native';
-
-
-
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { AntDesign } from '@expo/vector-icons';
 
 const data = [
     {
@@ -10,38 +9,49 @@ const data = [
         "Image": 'https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-512.png',
         "CompanyName": "Zenveus",
         "City": "Karachi",
-        "Service": "App Development"
+        "Service": "App Development",
+        "Country":"Pakistan",
+        "Language":"English"
     },
     {
         "id": "2",
         "Image": 'https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-512.png',
         "CompanyName": "Ekstek",
         "City": "Karachi",
-        "Service": "Web Development"
+        "Service": "Web Development",
+        "Country":"Pakistan",
+        "Language":"Urdu"
     },
     {
         "id": "3",
         "Image": 'https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-512.png',
         "CompanyName": "Zen Koders",
         "City": "Karachi",
-        "Service": "App Development"
+        "Service": "App Development",
+        "Country":"Pakistan",
+        "Language":"English"
     },
     {
         "id": "4",
         "Image": 'https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-512.png',
         "CompanyName": "Zeneks",
         "City": "Karachi",
-        "Service": "Web Development"
+        "Service": "Web Development",
+        "Country":"Pakistan",
+        "Language":"Urdu"
     }
 
 ]
-const ListScreen = () => {
+const ListScreen = ({navigation}) => {
 
     const renderItem=({item})=>{
         // console.log("Item: ",item)
         return(
 
-            <View style={styles.flatListStyle}>
+            <TouchableOpacity style={styles.flatListStyle}
+            onPress={()=>navigation.navigate('Detail',{details:item})}
+            >
+                <View style={{ flexDirection:'row', justifyContent: 'flex-start'}}>
                 <View><Image style={styles.image} source={{ uri: item.Image }}/></View>
                 <View>
                     <Text style={{ fontSize:16 }}>
@@ -54,7 +64,9 @@ const ListScreen = () => {
                    {item.Service}
                    </Text>
                 </View>
-            </View>
+                </View>
+                <View><AntDesign name="right" style={styles.iconStyle}/></View>
+            </TouchableOpacity>
         )
 
     }
@@ -65,7 +77,6 @@ const ListScreen = () => {
              data={data}
              keyExtractor={(item)=>item.id}
              renderItem={( item ) => renderItem(item)}
-            // renderItem={renderItem()}
              />
         </View>
     );
@@ -85,11 +96,18 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius:5,
         flexDirection: 'row',
+        justifyContent:'space-between'
     },
     image: {
         height: 50,
         width: 50,
         marginRight: 10
+    },
+    iconStyle: {
+        fontSize: 25,
+        justifyContent:'flex-end',
+        color:'#3d3b35',
+        marginVertical: 14
     }
 });
 

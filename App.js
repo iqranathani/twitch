@@ -9,6 +9,8 @@ import ListScreen from './src/screens/ListScreen';
 import HelpScreen from './src/screens/HelpScreen';
 import SettingScreen from './src/screens/SettingScreen';
 import SelectionScreen from './src/screens/SelectionScreen';
+import DetailScreen from './src/screens/DetailScreen';
+import RequestScreen from './src/screens/RequestScreen';
 
 
 const  navigator = createStackNavigator({
@@ -20,9 +22,11 @@ const  navigator = createStackNavigator({
   List:ListScreen,
   Help:HelpScreen,
   Setting:SettingScreen,
-  Selection:SelectionScreen
+  Selection:SelectionScreen,
+  Detail:DetailScreen,
+  Request:RequestScreen
 },{
-  initialRouteName: 'Landing',
+  initialRouteName: 'Request',
   defaultNavigationOptions: {
     header:null
   }
